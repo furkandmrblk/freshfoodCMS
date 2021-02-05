@@ -1,43 +1,35 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { groq } from 'next-sanity';
-import sanity, { getClient } from '../lib/sanity';
+import { HeroTitle, HeroSubtitle } from '../components/HeroStyled';
 
-// export async function getStaticProps() {
-//   const query = groq`*[_type == "Title"]{
-//     title,
-//     slug
+import sanity from '../lib/sanity';
 
-//   }`;
-//   const herotitle = await getClient().fetch(query);
-
-//   return {
-//     props: {
-//       title: herotitle,
-//     },
-//   };
-// }
-
-const query = `*[_type == "Title"] {
+const query = `*[_type == 'Title'] {
   title,
   slug
 }[0]`;
 
-const Home = ({ title }) => {
+const query2 = `*[_type == 'Subtitle'] {
+  subtitle,
+  slug
+}[0]`;
+
+const Home = ({ title, subtitle }) => {
   return (
     <div>
-      <h1>{title.title}</h1>
+      <HeroTitle>{title.title}</HeroTitle>
+      <HeroSubtitle>{subtitle.subtitle}</HeroSubtitle>
     </div>
   );
 };
 
 export const getStaticProps = async () => {
   const title = await sanity.fetch(query);
-  console.log(title);
+  const subtitle = await sanity.fetch(query2);
 
   return {
     props: {
       title: title,
+      subtitle: subtitle,
     },
   };
 };
