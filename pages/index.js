@@ -93,7 +93,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { title, about, contact, products: result.result },
-    revalidate: 10,
+    // revalidate: 10,
   };
 };
 
