@@ -18,7 +18,14 @@ import {
 } from './ProductsStyled';
 import imageUrlBuilder from '@sanity/image-url';
 
-function Products({ products }) {
+function Products({
+  products,
+  title,
+  subtitle,
+  descriptiontitle,
+  description,
+  price,
+}) {
   const router = useRouter();
   const [mappedProducts, setMappedProducts] = useState([]);
 
@@ -47,24 +54,25 @@ function Products({ products }) {
       <ProductsTitle id="products">Products</ProductsTitle>
       {mappedProducts.length ? (
         mappedProducts.map((p, index) => (
-          <ProductDiv>
+          <ProductDiv key={index}>
             <ProductImage
               src={p.image}
               onClick={() => router.push(`/${p.slug.current}`)}
-              key={index}
             />
             <ProductItemDiv>
               <ProductItemTopDiv>
-                <ProductTitle>{p.title}</ProductTitle>
-                <ProductPrice>{p.price}</ProductPrice>
+                <ProductTitle key={title}>{p.title}</ProductTitle>
+                <ProductPrice key={price}>{p.price}</ProductPrice>
               </ProductItemTopDiv>
               <ProductItemBottomDiv>
                 <ProductItemBottomLeftDiv>
-                  <ProductSubtitle>{p.subtitle}</ProductSubtitle>
-                  <ProductDescriptionTitle>
+                  <ProductSubtitle key={subtitle}>{p.subtitle}</ProductSubtitle>
+                  <ProductDescriptionTitle key={descriptiontitle}>
                     {p.descriptiontitle}
                   </ProductDescriptionTitle>
-                  <ProductDescription>{p.description}</ProductDescription>
+                  <ProductDescription key={description}>
+                    {p.description}
+                  </ProductDescription>
                 </ProductItemBottomLeftDiv>
                 <ProductItemBottomRightDiv>
                   <ProductButton>Buy</ProductButton>

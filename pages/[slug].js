@@ -1,6 +1,7 @@
+import Head from 'next/head';
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
+import GlobalStyle from '../theme/globalStyles';
 import Navbar from '../components/Navbar';
 import {
   ProductDescription,
@@ -11,7 +12,7 @@ import {
   ProductSubtitle,
   ProductTitle,
 } from '../components/SlugStyled';
-import GlobalStyle from '../theme/globalStyles';
+import Footer from '../components/Footer';
 
 export const Post = ({
   image,
@@ -19,7 +20,6 @@ export const Post = ({
   subtitle,
   descriptiontitle,
   description,
-  price,
 }) => {
   const [imageUrl, setImageUrl] = useState('');
 
@@ -34,6 +34,14 @@ export const Post = ({
 
   return (
     <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <title>freshfood - Product</title>
+      </Head>
       <GlobalStyle />
       <Navbar />
       <ProductDiv>
