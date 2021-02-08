@@ -41,7 +41,8 @@ export const HeroTextDiv = styled.div`
     font-size: 1.3rem;
   }
   @media ${maxdevice.mobileL} {
-    margin-left: 0;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
     max-width: auto;
     text-align: center;
     align-items: center;

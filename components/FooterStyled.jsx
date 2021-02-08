@@ -69,8 +69,8 @@ export const FooterLogo = styled.a`
 `;
 
 export const FooterItem = styled.a`
-  font-size: 1.375rem;
-  font-weight: 500;
+  font-size: 1.175rem;
+  font-weight: 600;
 
   color: #000;
 

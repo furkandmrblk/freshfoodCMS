@@ -58,7 +58,7 @@ export const Logo = styled.a`
 
 export const NavItem = styled.a`
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 
   color: #000;
